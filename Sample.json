@@ -1,0 +1,16 @@
+{
+	"house": {
+		"houseId": 576,
+		"houseAddress": {
+			"streetNumber": 76,
+			"streetName": "ABCDEFGHI",
+			"postalCode": 122
+		},
+		"floorCount": 91,
+		"price": 66,
+		"houseType": "Apartment Complex",
+		"contactNumber": 9264626927,
+		"houseName": "ABCD",
+		"contactEmail": "sth@gmail.com"
+	}
+}

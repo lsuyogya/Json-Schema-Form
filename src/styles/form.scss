@@ -1,0 +1,98 @@
+@use 'abstracts' as abs;
+
+.form {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	height: max(40em, 80%);
+	width: max(20em, 35vw);
+	gap: 2em;
+	padding: min(2vw, 4em);
+	justify-content: center;
+	border-radius: 1em;
+}
+$transition-delay: 0.3s;
+
+.center {
+	justify-content: center;
+	align-items: center;
+}
+
+.form-element {
+	width: 100%;
+	margin-bottom: -2em;
+	transition: all $transition-delay;
+	&:focus-within {
+		transform: scale(1.05);
+	}
+	&:last-child {
+		text-align: center;
+	}
+	&:last-child,
+	&:focus-within {
+		transform: none;
+	}
+}
+.form-label {
+	// width: 100%;
+	display: block;
+	margin-bottom: 2em;
+	font-weight: 600;
+	transform: translateY(-1.5em);
+	transform-origin: 0 0;
+	transition: all $transition-delay;
+	pointer-events: none;
+	color: abs.$grey;
+}
+
+$input-width: max(9em, 100%);
+
+.form-input {
+	display: block;
+	@extend .center;
+	width: $input-width;
+	height: 2em;
+	box-shadow: none;
+	border-color: lighten(abs.$grey, 25);
+	border-style: none none solid none;
+	transition: all $transition-delay;
+	&::placeholder {
+		color: transparent;
+	}
+	&:focus {
+		box-shadow: none;
+		outline: none;
+		border-color: abs.$highlight;
+	}
+	&:focus + .form-label,
+	&:not(:placeholder-shown) + .form-label {
+		transform: translateY(-3em) scale(1.1);
+		color: black;
+	}
+}
+
+.submit-button {
+	width: calc($input-width/2);
+	align-self: center;
+	height: 3em;
+	border-radius: 1000vw;
+	box-shadow: none;
+	border-style: none;
+	background-color: abs.$highlight;
+	color: abs.$text-color;
+	// font-weight: 700;
+	font-size: 1.1em;
+	transition: all $transition-delay;
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+.confirmation-txt {
+	color: abs.$highlight;
+	display: block;
+	font-weight: 600;
+	transform: translateY(-1.5em);
+	transform-origin: 0 0;
+	cursor: pointer;
+}

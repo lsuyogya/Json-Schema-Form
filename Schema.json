@@ -1,0 +1,82 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"description": "Schema for collecting data about a house to be sold",
+	"properties": {
+		"house": {
+			"description": "The house to be sold",
+			"type": "object",
+			"properties": {
+				"houseId": {
+					"description": "Unique ID of each house",
+					"type": "integer"
+				},
+				"houseName": {
+					"description": "Name of the house",
+					"type": "string",
+					"minLength": 1
+				},
+				"houseAddress": {
+					"description": "Address of the house",
+					"type": "object",
+					"properties": {
+						"streetNumber": {
+							"description": "Street number in which the house lies",
+							"type": "integer"
+						},
+						"streetName": {
+							"description": "Name of the street in which the house lies",
+							"type": "string",
+							"minLength": 1
+						},
+						"postalCode": {
+							"description": "Postal code for the house",
+							"type": "integer"
+						}
+					},
+					"required": ["streetNumber", "streetName", "postalCode"]
+				},
+				"floorCount": {
+					"description": "Number of floors in the house",
+					"type": "integer"
+				},
+				"price": {
+					"description": "Price of the house to be sold",
+					"type": "integer"
+				},
+				"houseType": {
+					"description": "Type of the house",
+					"type": "string",
+					"enum": [
+						"Townhome",
+						"Apartment Complex",
+						"Condominiums",
+						"Single Family Residence",
+						"Multiple Family Residence",
+						"Bungalow"
+					]
+				},
+				"contactNumber": {
+					"description": "Contact number of the person selling the house",
+					"type": "integer",
+					"minimum": 9000000000,
+					"maximum": 9999999999
+				},
+				"contactEmail": {
+					"description": "Email address of the person selling the house",
+					"type": "string",
+					"format": "email"
+				}
+			},
+			"required": [
+				"houseId",
+				"houseAddress",
+				"floorCount",
+				"price",
+				"houseType",
+				"contactNumber"
+			]
+		}
+	},
+	"required": ["house"]
+}
